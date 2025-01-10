@@ -1,21 +1,24 @@
-16:14:59 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+19:48:39 **** Incremental Build of configuration Debug for project 002Add ****
 make -j16 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "001HelloWorld.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\arees\OneDrive\Desktop\Embedded-C\My_workspace\target\001HelloWorld\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HelloWorld.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 001HelloWorld.elf
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "002Add.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\arees\OneDrive\Desktop\Embedded-C\My_workspace\target\002Add\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Add.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Add.elf
  
-arm-none-eabi-size  001HelloWorld.elf 
-arm-none-eabi-objdump -h -S 001HelloWorld.elf  > "001HelloWorld.list"
+arm-none-eabi-size  002Add.elf 
+arm-none-eabi-objdump -h -S 002Add.elf  > "002Add.list"
    text	   data	    bss	    dec	    hex	filename
-   6256	    100	   2076	   8432	   20f0	001HelloWorld.elf
+   4904	    100	   1908	   6912	   1b00	002Add.elf
 Finished building: default.size.stdout
  
-Finished building: 001HelloWorld.list
+Finished building: 002Add.list
  
-16:15:14 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+19:49:30 **** Incremental Build of configuration Debug for project 002Add ****
 make -j16 all 
-arm-none-eabi-size  001HelloWorld.elf 
+arm-none-eabi-size  002Add.elf 
    text	   data	    bss	    dec	    hex	filename
-   6256	    100	   2076	   8432	   20f0	001HelloWorld.elf
+   4904	    100	   1908	   6912	   1b00	002Add.elf
 Finished building: default.size.stdout
  

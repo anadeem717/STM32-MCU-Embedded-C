@@ -19,24 +19,21 @@
 #include <stdint.h>
 #include <stdio.h>
 
+// global vars
+int g_data1 = -4000;
+int g_data2 = 200;
+int res = 0;
+
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
-extern void initialise_monitor_handles(void);
-
 int main(void)
 {
 
-	initialise_monitor_handles();
+	res = g_data1 + g_data2;
 
-	printf("Hello World");
-
-	printf("size of char data type is %d bytes\n", sizeof(char));
-	printf("size of short data type is %d bytes\n", sizeof(short));
-	printf("size of int data type is %d bytes\n", sizeof(int));
-	printf("size of long data type is %d bytes\n", sizeof(long));
-	printf("size of long long data type is %d bytes\n", sizeof(long long));
+	printf("Result = %d\n", res);
 
     /* Loop forever */
 	for(;;);

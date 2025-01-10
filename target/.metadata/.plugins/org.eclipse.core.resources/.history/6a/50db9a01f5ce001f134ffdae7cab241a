@@ -30,8 +30,6 @@ int main(void)
 
 	initialise_monitor_handles();
 
-	printf("Hello World");
-
 	printf("size of char data type is %d bytes\n", sizeof(char));
 	printf("size of short data type is %d bytes\n", sizeof(short));
 	printf("size of int data type is %d bytes\n", sizeof(int));
