@@ -1,4 +1,5 @@
-18:23:42 **** Incremental Build of configuration Debug for project Pointer ****
+21:50:01 **** Rebuild of configuration Debug for project Bitwise ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
-gcc -o Pointer.exe main.o 
+gcc -o Bitwise.exe main.o 
+Info: Nothing to build for Bitwise
