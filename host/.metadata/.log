@@ -52,3 +52,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\arees\O
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-01-10 17:52:35.786
 !MESSAGE Indexed 'Average' (1 sources, 12 headers) in 0.074 sec: 1,420 declarations; 3,162 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-10 18:04:17.210
+!MESSAGE Indexed 'floatCharge' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
