@@ -1,0 +1,26 @@
+/*
+ * main.c
+ *
+ *  Created on: Jan 10, 2025
+ *      Author: arees
+ */
+
+#include <stdio.h>
+
+int main() {
+
+	float num0, num1, num2;
+
+	printf("Enter first number: \n");
+	scanf("%d, &num0");
+
+	printf("Enter second number: \n");
+	scanf("%d, &num1");
+
+	printf("Enter third number: \n");
+	scanf("%d, &num2");
+
+	float average = (num0 + num1 + num2) / 3;
+
+	printf("Average is : %f\n", average);
+}

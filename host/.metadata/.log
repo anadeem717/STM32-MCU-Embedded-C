@@ -31,3 +31,24 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\arees\O
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-01-06 20:25:41.933
 !MESSAGE Indexed '000TestProject' (0 sources, 0 headers) in 0.003 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2025-01-10 17:42:37.972 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\arees\OneDrive\Desktop\Embedded-C\My_workspace\host
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-01-10 17:42:42.445
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-01-10 17:42:42.446
+!MESSAGE Log4j2 initialized with config file C:\Users\arees\OneDrive\Desktop\Embedded-C\My_workspace\host\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-01-10 17:42:46.482
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-10 17:43:16.014
+!MESSAGE Indexed 'Average' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-01-10 17:52:35.786
+!MESSAGE Indexed 'Average' (1 sources, 12 headers) in 0.074 sec: 1,420 declarations; 3,162 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
