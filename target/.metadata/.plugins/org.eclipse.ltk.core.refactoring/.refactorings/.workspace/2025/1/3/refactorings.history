@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;led_on_bitShift/Debug/led_on.elf&apos;" deleteContents="false" description="Delete resource &apos;led_on_bitShift/Debug/led_on.elf&apos;" element1="/led_on_bitShift/Debug/led_on.elf" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1736655023477"/>&#x0A;<refactoring comment="Delete resource &apos;led_on_bitShift/led_on.launch&apos;" deleteContents="false" description="Delete resource &apos;led_on_bitShift/led_on.launch&apos;" element1="/led_on_bitShift/led_on.launch" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1736655027016"/>
+</session>
