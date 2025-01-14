@@ -27,7 +27,7 @@ int main() {
 	printf("Price of car BMW is %d\n", carBMW.price);
 
 	// learn about struct padding
-	printf("Size of struct carModel is %llu bytes\n", sizeof(struct carModel));
+	printf("Size of struct carModel is %I64llu\n", sizeof(struct carModel));
 
 
 	getchar();
