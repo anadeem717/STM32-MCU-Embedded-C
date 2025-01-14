@@ -1,0 +1,25 @@
+/*
+ * main.c
+ *
+ *  Created on: Jan 10, 2025
+ *      Author: arees
+ */
+
+#include <stdio.h>
+#include <stdint.h>
+
+struct carModel {
+	uint32_t carNumber;
+	uint32_t price;
+	uint32_t maxSpeed;
+	float weight;
+
+};
+
+int main() {
+
+
+	for(;;);
+}
+
+
