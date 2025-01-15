@@ -1,3 +1,4 @@
-20:42:40 **** Incremental Build of configuration Debug for project StructPacket ****
+20:48:41 **** Incremental Build of configuration Debug for project StructPacket ****
 Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
 gcc -o StructPacket.exe main.o 

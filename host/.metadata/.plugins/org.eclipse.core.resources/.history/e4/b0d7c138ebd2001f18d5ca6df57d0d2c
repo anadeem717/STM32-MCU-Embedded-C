@@ -40,8 +40,7 @@ int main() {
 	printf("Enter the 32bit packet value:");
 	scanf("%X", &packetVal);
 
-	//struct packet packet;
-	struct packet_bitField packet; // using bit fields
+	struct packet packet;
 
 	packet.crc = (uint8_t) packetVal & 0x3; // only need last 2 bits
 	packet.status = (uint8_t) ( (packetVal >> 2) & 0x1 );
