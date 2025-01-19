@@ -98,7 +98,7 @@ int main(void)
  8000212:	4b18      	ldr	r3, [pc, #96]	@ (8000274 <main+0x70>)
  8000214:	607b      	str	r3, [r7, #4]
 
-	//1. enable the clock for GPOIA peripheral in the AHB1ENR (SET the 3rd bit position)
+	//1. enable the clock for GPOIA peripheral in the AHB1ENR
 	p_clkCtrlReg->gpioa_en = 1;
  8000216:	68fa      	ldr	r2, [r7, #12]
  8000218:	6813      	ldr	r3, [r2, #0]

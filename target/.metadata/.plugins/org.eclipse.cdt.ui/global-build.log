@@ -1,28 +1,22 @@
-20:12:09 **** Incremental Build of configuration Debug for project led_toggle_bitFields ****
+20:39:53 **** Build of configuration Debug for project sampleApp ****
 make -j16 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "led_toggle_bitFields.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\arees\OneDrive\Desktop\Embedded-C\My_workspace\target\led_toggle_bitFields\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="led_toggle_bitFields.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: led_toggle_bitFields.elf
+arm-none-eabi-gcc -o "sampleApp.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\arees\OneDrive\Desktop\Embedded-C\My_workspace\target\sampleApp\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="sampleApp.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: sampleApp.elf
  
-arm-none-eabi-size  led_toggle_bitFields.elf 
-arm-none-eabi-objdump -h -S led_toggle_bitFields.elf  > "led_toggle_bitFields.list"
+arm-none-eabi-size  sampleApp.elf 
+arm-none-eabi-objdump -h -S sampleApp.elf  > "sampleApp.list"
    text	   data	    bss	    dec	    hex	filename
-    824	      0	   1568	   2392	    958	led_toggle_bitFields.elf
+   6296	    164	   1900	   8360	   20a8	sampleApp.elf
 Finished building: default.size.stdout
  
-Finished building: led_toggle_bitFields.list
+Finished building: sampleApp.list
  
-20:12:13 **** Incremental Build of configuration Debug for project led_toggle_bitFields ****
+20:40:24 **** Incremental Build of configuration Debug for project sampleApp ****
 make -j16 all 
-arm-none-eabi-size  led_toggle_bitFields.elf 
+arm-none-eabi-size  sampleApp.elf 
    text	   data	    bss	    dec	    hex	filename
-    824	      0	   1568	   2392	    958	led_toggle_bitFields.elf
-Finished building: default.size.stdout
- 
-20:12:38 **** Incremental Build of configuration Debug for project led_toggle_bitFields ****
-make -j16 all 
-arm-none-eabi-size  led_toggle_bitFields.elf 
-   text	   data	    bss	    dec	    hex	filename
-    824	      0	   1568	   2392	    958	led_toggle_bitFields.elf
+   6296	    164	   1900	   8360	   20a8	sampleApp.elf
 Finished building: default.size.stdout
  
