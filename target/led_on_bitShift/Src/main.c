@@ -13,7 +13,7 @@
  * in the root directory of this software component.
  * If no LICENSE file comes with this software, it is provided AS-IS.
  *
- ******************************************************************************
+ *****************************************************************************
  */
 
 // program to enable LD2 (LED2) on NUCLEO-STM32F446RE
