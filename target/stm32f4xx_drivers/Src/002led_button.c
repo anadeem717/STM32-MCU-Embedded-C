@@ -1,0 +1,51 @@
+/*
+ * 002led_button.c
+ *
+ *  Created on: Aug 21, 2025
+ *      Author: arees
+ */
+
+#include "stmf446xx.h"
+
+#define LOW 0
+#define BTN_PRESSED LOW
+
+void delay(void) {
+	for (uint32_t i = 0; i < 500000; i++);
+}
+
+int main(void)
+{
+    // 1) Enable clock to GPIOA
+    GPIO_PeriClockControl(GPIOA, ENABLE);
+    GPIO_PeriClockControl(GPIOC, ENABLE);
+
+    // 2) Configure PA5
+    GPIO_Handle_t GPIOLed, GPIOBtn;
+    GPIOLed.pGPIOx = GPIOA;
+    GPIOLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_5;
+    GPIOLed.GPIO_PinConfig.GPIO_PinMode   = GPIO_MODE_OUT;
+    GPIOLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+    GPIOLed.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+    GPIOLed.GPIO_PinConfig.GPIO_PinSpeed  = GPIO_SPEED_FAST;
+
+    GPIO_Init(&GPIOLed);
+
+	GPIOBtn.pGPIOx = GPIOC;
+	GPIOBtn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GPIOBtn.GPIO_PinConfig.GPIO_PinMode   = GPIO_MODE_IN;
+	GPIOBtn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	GPIOBtn.GPIO_PinConfig.GPIO_PinSpeed  = GPIO_SPEED_FAST;
+
+	GPIO_Init(&GPIOBtn);
+
+
+    while (1) {
+    	if (GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == BTN_PRESSED) {
+    		delay();
+    		GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_5);
+    	}
+    }
+}
+
+
