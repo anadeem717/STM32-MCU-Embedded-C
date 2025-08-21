@@ -1,0 +1,224 @@
+/*
+ * stm32f446xx_gpio_driver.c
+ *
+ *  Created on: Aug 19, 2025
+ *      Author: arees
+ */
+
+#include "stm32f446xx_gpio_driver.h"
+
+/*
+ * enables or disables peripheral clock for the given GPIO port
+ * @param - base addr of GPIO peripheral
+ * @param - ENABLE or DISABLE MACROS
+ */
+void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
+{
+	if (EnorDi == ENABLE)
+	{
+		if (pGPIOx == GPIOA) {
+			GPIOA_PCLK_EN();
+		}
+		else if (pGPIOx == GPIOB) {
+			GPIOB_PCLK_EN();
+		}
+		else if (pGPIOx == GPIOC) {
+			GPIOC_PCLK_EN();
+		}
+		else if (pGPIOx == GPIOD) {
+			GPIOD_PCLK_EN();
+		}
+		else if (pGPIOx == GPIOE) {
+			GPIOE_PCLK_EN();
+		}
+		else if (pGPIOx == GPIOF) {
+			GPIOF_PCLK_EN();
+		}
+		else if (pGPIOx == GPIOG) {
+			GPIOG_PCLK_EN();
+		}
+		else if (pGPIOx == GPIOH) {
+			GPIOH_PCLK_EN();
+		}
+	}
+	else
+	{
+		if (pGPIOx == GPIOA) {
+			GPIOA_PCLK_DI();
+		}
+		else if (pGPIOx == GPIOB) {
+			GPIOB_PCLK_DI();
+		}
+		else if (pGPIOx == GPIOC) {
+			GPIOC_PCLK_DI();
+		}
+		else if (pGPIOx == GPIOD) {
+			GPIOD_PCLK_DI();
+		}
+		else if (pGPIOx == GPIOE) {
+			GPIOE_PCLK_DI();
+		}
+		else if (pGPIOx == GPIOF) {
+			GPIOF_PCLK_DI();
+		}
+		else if (pGPIOx == GPIOG) {
+			GPIOG_PCLK_DI();
+		}
+
+		else if (pGPIOx == GPIOH) {
+			GPIOH_PCLK_DI();
+		}
+	}
+}
+
+
+
+/*
+ * initializes GPIO peripheral
+ * @param - GPIO handler struct
+ */
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
+{
+	// configure mode of gpio pin
+	uint32_t temp = 0;
+
+	if (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_MODE_ANALOG) {
+		// non interrupt mode
+		temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+		pGPIOHandle->pGPIOx->MODER &= ~(0x3 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber); // clearing
+		pGPIOHandle->pGPIOx->MODER |= temp;
+	}
+	else {
+		// interrupt mode
+	}
+
+	temp = 0;
+
+	// configure speed
+	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->OSPEEDR &= ~(0x3 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber); // clearing
+	pGPIOHandle->pGPIOx->OSPEEDR |= temp;
+
+	temp = 0;
+
+	// configure pupd settings
+	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->PUPDR &= ~(0x3 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber); // clearing
+	pGPIOHandle->pGPIOx->PUPDR |= temp;
+
+	temp = 0;
+
+	// configure the optype
+	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinOPType << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+	pGPIOHandle->pGPIOx->OTYPER &= ~(0x1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber); // clearing
+	pGPIOHandle->pGPIOx->OTYPER |= temp;
+
+	temp = 0;
+
+	// configure the alt functionality
+	if (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_ALTFN){
+		// configure alt function registers
+		uint8_t temp1, temp2;
+
+		temp1 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber / 8;
+		temp2 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 8;
+		pGPIOHandle->pGPIOx->AFR[temp1] &= ~(0xF << (4 * temp2));
+		pGPIOHandle->pGPIOx->AFR[temp1] |= pGPIOHandle->GPIO_PinConfig.GPIO_PinAltFunMode << (4 * temp2);
+	}
+}
+
+/*
+ * deinitializes GPIO peripheral
+ * @param - base addr of GPIO peripheral
+ */
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
+{
+    if (pGPIOx == GPIOA) {
+        GPIOA_REG_RESET();
+    } else if (pGPIOx == GPIOB) {
+        GPIOB_REG_RESET();
+    } else if (pGPIOx == GPIOC) {
+        GPIOC_REG_RESET();
+    } else if (pGPIOx == GPIOD) {
+        GPIOD_REG_RESET();
+    } else if (pGPIOx == GPIOE) {
+        GPIOE_REG_RESET();
+    } else if (pGPIOx == GPIOF) {
+        GPIOF_REG_RESET();
+    } else if (pGPIOx == GPIOG) {
+        GPIOG_REG_RESET();
+    } else if (pGPIOx == GPIOH) {
+        GPIOH_REG_RESET();
+    }
+}
+
+
+/*
+ * Reads data from input pin
+ * @param 	- base addr of GPIO peripheral
+ * @param 	- pin number
+ *
+ * @return 	- 0 or 1
+ */
+uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+{
+	uint8_t value;
+	value = (uint8_t)((pGPIOx->IDR >> PinNumber) & 0x00000001);
+	return value;
+}
+
+
+/*
+ * Reads data from input port
+ * @param 	- base addr of GPIO peripheral
+ *
+ * @return 	- 16 bit uint
+ */
+uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx)
+{
+	uint16_t value;
+	value = (uint16_t)pGPIOx->IDR;
+	return value;
+}
+
+
+/*
+ * Writes data to output pin
+ * @param 	- base addr of GPIO peripheral
+ * @param	- pin number
+ * @param  	- value (data)
+ */
+void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t value)
+{
+	if (value == GPIO_PIN_SET) {
+		// write 1
+		pGPIOx->ODR |= (1 << PinNumber);
+	}
+	else {
+		// write 0
+		pGPIOx->ODR &= ~(1 << PinNumber);
+	}
+}
+
+
+/*
+ * Writes data to output port
+ * @param 	- base addr of GPIO peripheral
+ * @param  	- value (data)
+ */
+void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value)
+{
+	pGPIOx->ODR = value;
+}
+
+
+void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+{
+	pGPIOx->ODR ^= (1 << PinNumber);
+}
+
+
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnorDi);
+
+
+void GPIO_IRQHandling(uint8_t PinNumber);
